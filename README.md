@@ -34,7 +34,7 @@ SpendSense is an expense tracking mobile application developed to enhance person
 2. Modify the env.js for the Recipt scanning service api
 
    ```
-   export const API_URL = http://HOST:8085/inference_re
+   export const API_URL = http://HOST:8085/api/v1/inference
    ```
 
 3. Start the app
@@ -69,7 +69,7 @@ MODEL_BACKEND_PORT = "8085"
 ```
 python main.py
 ```
-Now the api is serving at 'http://HOST:8085/inference_re'
+Now the api is serving at 'http://HOST:8085/api/v1/inference'
 
 
 ## Sample receipt for inference
@@ -84,7 +84,7 @@ def test_qwen_re(image_path):
     base64_image = encode_image2base64(image_path)
 
     response = requests.post(
-        "http://localhost:8085/inference_re", json={"base64_string": base64_image}
+        "http://localhost:8085/api/v1/inference", json={"base64_string": base64_image}
     )
     print(response)
 

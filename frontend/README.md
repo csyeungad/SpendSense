@@ -9,7 +9,7 @@
 2. Modify the env.js for the Recipt scanning service api
 
    ```
-   export const API_URL = http://HOST:8085/inference_re
+   export const API_URL = http://HOST:8085/api/v1/inference
    ```
 
 3. Start the app

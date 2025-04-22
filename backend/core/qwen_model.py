@@ -91,7 +91,7 @@ class DocumentExtractor:
 
 if __name__ == '__main__':
 
-    image_path = r'D:\AI_archivist\data\re\re_4.jpeg'
+    image_path = r'.data\re\re_4.jpeg'
     base64_img = encode_image2base64(image_path)
     print(base64_img[:10])
     extractor = DocumentExtractor("Qwen/Qwen2.5-VL-7B-Instruct")

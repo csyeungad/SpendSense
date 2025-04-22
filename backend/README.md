@@ -36,7 +36,7 @@ def test_qwen_re(image_path):
     base64_image = encode_image2base64(image_path)
 
     response = requests.post(
-        "http://localhost:8085/inference_re", json={"base64_string": base64_image}
+        "http://localhost:8085/api/v1/inference", json={"base64_string": base64_image}
     )
     print(response)
 
