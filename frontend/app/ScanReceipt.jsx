@@ -1,17 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { StyleSheet, Text, View, Image, Alert, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
-import * as FileSystem from 'expo-file-system';
 import { router } from 'expo-router';
 import Button from '@/components/Button';
-import * as ImageManipulator from 'expo-image-manipulator';
 import * as ImagePicker from 'expo-image-picker';
 import {receiptScanInference} from '@/services/receiptScanService';
-//only for quick demo purpose
-// import sampleImage1 from '../assets/images/re_2.jpeg';
-// import sampleImage2 from '../assets/images/re_1.jpeg';
-// import sampleImage3 from '../assets/images/re_3.jpeg';
-
 
 export default function CCameraModule() {
   const [cameraPermission, requestCameraPermission] = useCameraPermissions();
@@ -26,7 +19,6 @@ export default function CCameraModule() {
   const [loadingMessage, setLoadingMessage] = useState('');
   const cameraRef = useRef(null);
 
-  // const sampleImageData = Image.resolveAssetSource(sampleImage1);
 
   if (!cameraPermission) {
     return <View />;
@@ -59,33 +51,6 @@ export default function CCameraModule() {
       }
     }
   };
-
-  // const useSampleImage = async () => {
-  //   try {
-  //     // Download the sample image to a local file
-  //     setLoading(true);
-  //     setLoadingMessage('Preparing sample image...');
-  //     const downloadedImage = await FileSystem.downloadAsync(
-  //       sampleImageData.uri,
-  //       FileSystem.cacheDirectory + 'sampleImage.jpeg' // Cache directory path
-  //     );
-
-  //     // Resize the image
-  //     const manipulatorResult = await ImageManipulator.manipulateAsync(
-  //       downloadedImage.uri,
-  //       [{ resize: { width: 400, height: 600 } }], // Change these values as needed
-  //       { compress: 1, format: ImageManipulator.SaveFormat.JPEG }
-  //     );
-
-  //     setImage(manipulatorResult.uri);
-  //   } catch (error) {
-  //     console.error('Error downloading sample image:', error);
-  //     Alert.alert('Error', 'Failed to prepare the sample image.');
-  //   } finally {
-  //     setLoading(false);
-  //     setLoadingMessage('');
-  //   }
-  // };
 
   const sendPicture = async () => {
     setLoading(true);
@@ -141,7 +106,6 @@ export default function CCameraModule() {
               icon={cameraProps.enableTorch ? 'flashlight-on' : 'flashlight-off'}
               onPress={() => toggleProperty('enableTorch', true, false)}
             />
-            {/* <Button icon="image" size={36} onPress={useSampleImage} /> */}
           </View>
           <CameraView
             style={styles.imageview}

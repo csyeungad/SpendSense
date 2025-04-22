@@ -1,1 +1,1 @@
-export const API_URL = 'http://localhost:8085/inference_re'
+export const API_URL = 'http://localhost:8085/api/v1/inference'
